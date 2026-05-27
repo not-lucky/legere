@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Translate to English",
+  "version": "1.0",
+  "description": "Translate selected text to English via OpenAI-compatible API",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "clipboardWrite"
+  ],
+  "background": {
+    "scripts": ["background/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/overlay.js"],
+      "css": ["content/overlay.css"]
+    }
+  ],
+  "options_ui": {
+    "page": "settings/settings.html"
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  }
+}
